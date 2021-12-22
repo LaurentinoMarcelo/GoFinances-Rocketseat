@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { HighlightCard } from '../../components/HighlightCard';
+import { TransationCard, TransationCardProps } from '../../components/TransationCard';
+
 import {
     Container,
     Header,
@@ -11,25 +14,51 @@ import {
     UserName,
     Icon,
     HighlightCards,
-    Trasations,
-    Title
+    Transactions,
+    Title,
+    TransactionList
 } from './styles'
-import { RFValue } from 'react-native-responsive-fontsize';
 
-import { HighlightCard } from '../../components/HighlightCard';
-import { TransationCard } from '../../components/TransationCard';
-
+export interface DataListProps extends TransationCardProps{
+    id: String;
+}
 
 export function Dashboard(){
-    const data = {
-        title: 'Desenvolvimento de site',
-        amount: 'R$ 12.000,00',
-        category: { 
-            name: 'Vendas',
-            icon: 'dollar-sign'
+    const data = [
+        {   
+            id: '1',
+            type: 'positive',
+            title: 'Desenvolvimento de site',
+            amount: 'R$ 12.000,00',
+            category: { 
+                name: 'Vendas',
+                icon: 'dollar-sign'
+            },
+            date: '13/06/2021'
         },
-        date: '13/06/2021'
-    };
+        {
+            id: '2',
+            type: 'negative',
+            title: 'Hamburgueria Pizzy',
+            amount: 'R$ 59,00',
+            category: { 
+                name: 'Alimentação',
+                icon: 'coffee'
+            },
+            date: '10/04/2021'
+        },
+        {
+            id: '3',
+            type: 'negative',
+            title: 'Aluguel do apartamento',
+            amount: 'R$ 1.200,00',
+            category: { 
+                name: 'Casa',
+                icon: 'shopping-bag'
+            },
+            date: '05/11/2021'
+        }
+];
 
     return(
         <Container>
@@ -68,11 +97,17 @@ export function Dashboard(){
                 type='total'/>
             </HighlightCards>
 
-            <Trasations>
+            <Transactions>
                <Title>Listagem</Title> 
 
-               <TransationCard data={data}/>
-            </Trasations>
+            <TransactionList
+                data = {data}
+                keyExtractor={item => item.id}
+                renderItem={({ item }) => <TransationCard data={item}/>} 
+            />
+
+               
+            </Transactions>
 
         </Container>
     )

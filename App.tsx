@@ -9,7 +9,7 @@ import{
 import AppLoading from 'expo-app-loading';
 
 import theme from './src/global/styles/theme';
-import { Dashboard } from './src/screnns/Dashboard';
+import { Register } from './src/screnns/Register';
 
 
 export default function App() {
@@ -24,7 +24,7 @@ export default function App() {
   }
   return(
     <ThemeProvider theme={theme}>
-      <Dashboard/> 
+      <Register/> 
     </ThemeProvider>
   )    
 }
