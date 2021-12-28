@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Modal } from "react-native";
+import { useForm } from 'react-hook-form';
 
 import { Input } from "../../components/Forms/input";
+import { InputForm } from "../../components/Forms/inputForm";
 import { Button } from "../../components/Forms/Button";
 import { TransactionTypeButton } from "../../components/Forms/TransationTypeButton";
 import { CategorySelectButton } from "../../components/Forms/CategorySelectButton";
@@ -16,15 +18,25 @@ import {
     TransactionsTypes
 } from "./styles";
 
+interface FormData{
+    name: string;
+    amount: string;
+}
 
 export function Register(){
    
     const [transactionType, setTransactionType] = useState('');
     const [categoryModalOpen, setCategoryModalOpen] = useState(false);
+
     const [category, setCategory] = useState({
         key: 'category',
         name: 'Categoria',
     });
+
+    const {
+        control,
+        handleSubmit,
+    } = useForm();
 
     function handleTransactionTypeButton(type: 'up' | 'down'){
         setTransactionType(type);
@@ -37,6 +49,18 @@ export function Register(){
         setCategoryModalOpen(false)
     }
 
+    function handleRegister(form: FormData){
+        const data ={
+            name: form.name,
+            amount: form.amount,
+            transactionType,
+            category: category.key
+        }
+
+        console.log(data);
+        
+    }
+
     return(
     
         <Container>
@@ -46,11 +70,15 @@ export function Register(){
 
         <Form>
             <Fields>
-                <Input
+                <InputForm
+                name="name"
+                control={control}
                 placeholder="nome"
                 />
 
-                <Input
+                <InputForm
+                 name="amount"
+                 control={control}
                 placeholder="preço"
                 />
 
@@ -78,7 +106,10 @@ export function Register(){
 
             
 
-            <Button title="Enviar"/>
+            <Button 
+            title="Enviar"
+            onPress={handleSubmit(handleRegister)}
+            />
         </Form>
 
         <Modal visible={categoryModalOpen}>
