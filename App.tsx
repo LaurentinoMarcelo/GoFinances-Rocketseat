@@ -10,6 +10,7 @@ import AppLoading from 'expo-app-loading';
 
 import theme from './src/global/styles/theme';
 import { Register } from './src/screnns/Register';
+import { CategorySelect } from './src/screnns/CategorySelect';
 
 
 export default function App() {
