@@ -1,8 +1,14 @@
 import React, { useState } from "react";
-import { Modal } from "react-native";
+import { 
+    Modal, 
+    TouchableWithoutFeedback, 
+    Keyboard,
+    Alert
+ } from "react-native";
 import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
 
-import { Input } from "../../components/Forms/input";
 import { InputForm } from "../../components/Forms/inputForm";
 import { Button } from "../../components/Forms/Button";
 import { TransactionTypeButton } from "../../components/Forms/TransationTypeButton";
@@ -23,6 +29,16 @@ interface FormData{
     amount: string;
 }
 
+const schema = yup.object().shape({
+    name: yup
+    .string()
+    .required('Nome é obrigatório'),
+    amount: yup
+    .number()
+    .typeError('Informe um valor númerico')
+    .positive('O valor não pode ser negativo')
+});
+
 export function Register(){
    
     const [transactionType, setTransactionType] = useState('');
@@ -36,7 +52,10 @@ export function Register(){
     const {
         control,
         handleSubmit,
-    } = useForm();
+        formState: { errors}
+    } = useForm({
+        resolver: yupResolver(schema)
+    });
 
     function handleTransactionTypeButton(type: 'up' | 'down'){
         setTransactionType(type);
@@ -50,6 +69,15 @@ export function Register(){
     }
 
     function handleRegister(form: FormData){
+        if (!transactionType) {
+            return Alert.alert('Selecione o tipo da transação')
+        }
+
+        if (category.key === 'category') {
+            return Alert.alert('Selecione a categoria')
+        }
+
+
         const data ={
             name: form.name,
             amount: form.amount,
@@ -62,8 +90,9 @@ export function Register(){
     }
 
     return(
-    
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <Container>
+            
             <Header>
                 <Title>Cadastro</Title>
             </Header>
@@ -73,13 +102,18 @@ export function Register(){
                 <InputForm
                 name="name"
                 control={control}
-                placeholder="nome"
+                placeholder="Nome"
+                autoCapitalize="sentences"
+                autoCorrect={false}
+                error={errors.name && errors.name.message}
                 />
 
                 <InputForm
-                 name="amount"
-                 control={control}
+                name="amount"
+                control={control}
                 placeholder="preço"
+                keyboardType="numeric"
+                error={errors.amount && errors.amount.message}
                 />
 
                 <TransactionsTypes>
@@ -119,8 +153,8 @@ export function Register(){
             closeSelectCategory= {handleCloseSelectCategoryModal}
             />
         </Modal>    
-            
+        
         </Container>
-
+        </TouchableWithoutFeedback>     
         ) 
 }
