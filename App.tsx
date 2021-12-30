@@ -8,6 +8,10 @@ import{
 } from '@expo-google-fonts/poppins'
 import AppLoading from 'expo-app-loading';
 
+import 'intl';
+import 'intl/locale-data/jsonp/pt-BR';
+
+
 import { AppRoutes } from './src/routes/app.routes'
 
 import theme from './src/global/styles/theme';
