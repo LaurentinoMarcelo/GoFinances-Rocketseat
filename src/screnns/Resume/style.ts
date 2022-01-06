@@ -36,10 +36,6 @@ export const MonthSelect = styled.View`
     justify-content: space-between;
     align-items: center;
     margin-top: 24px;
-     
-`;
-
-export const MonthSelectButton = styled.Button`
 `;
 
 export const MonthSelectIcon = styled(Feather)`

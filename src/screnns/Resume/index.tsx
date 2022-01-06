@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback} from 'react';
+import React, { useState, useCallback} from 'react';
 import { ActivityIndicator } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { HistoryCard } from '../../components/HsitoryCard';
@@ -10,7 +10,6 @@ import {
     Content,
     ChartContainer,
     MonthSelect,
-    MonthSelectButton,
     MonthSelectIcon,
     Month,
     LoadContainer,
@@ -31,6 +30,7 @@ import { addMonths, subMonths, format } from 'date-fns';
 import { ptBR } from 'date-fns/locale'
 
 import { useFocusEffect } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native';
 
 interface TransactionData{
     type: 'positive' | 'negative'
@@ -61,7 +61,7 @@ export function Resume(){
         if (action === 'next') {
             const newData = addMonths(selectedDate, 1);
             setSelectedDate(newData);
-            
+               
         }else{
             const newData = subMonths(selectedDate, 1);
             setSelectedDate(newData); 
@@ -151,21 +151,17 @@ export function Resume(){
             >
             
             <MonthSelect>
-                <MonthSelectButton 
-                    title=''
-                    onPress={() => handleChangeDate('prev')}>
+                <TouchableOpacity onPress={() => handleChangeDate('prev')}>
                     <MonthSelectIcon name="chevron-left"/>
-                </MonthSelectButton>
+                </TouchableOpacity>
 
                 <Month>
                    {format(selectedDate, 'MMMM, yyyy',{locale: ptBR})}
                 </Month>
 
-                <MonthSelectButton 
-                    title=''
-                    onPress={() => handleChangeDate('next')}>
+                <TouchableOpacity onPress={() => handleChangeDate('next')}>
                     <MonthSelectIcon name="chevron-right"/>
-                </MonthSelectButton>
+                </TouchableOpacity>
                 
             </MonthSelect>
 
