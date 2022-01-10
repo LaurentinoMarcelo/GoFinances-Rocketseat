@@ -1,5 +1,7 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { Button, Text } from 'react-native'
 import { SigninSocialButton } from '../../components/SigninSocialButton'
+import { Alert, TouchableOpacity } from 'react-native'
 import { 
     Container,
     Header,
@@ -7,7 +9,11 @@ import {
     Title,
     SigninTitle,
     Footer,
-    FooterWrapper
+    FooterWrapper,
+    ButtonLoginSocial,
+    IconRedeSocial,
+    TextRedeSocial
+    
 } from './style'
 
 import AppleSvg from '../../assets/apple-icon.svg'
@@ -15,7 +21,22 @@ import GoogleSvg from '../../assets/google-icon.svg'
 import LogoSvg from '../../assets/logo-icon.svg'
 import { RFValue } from 'react-native-responsive-fontsize'
 
+import { useAuth } from '../../hooks/auth'
+
 export function Signin(){
+
+    const {signInWithGoogle} = useAuth();
+        
+    async function handleSignInWithGoogle() {       
+        try {
+            await signInWithGoogle();
+
+        } catch (error) {
+            console.log(error);
+            Alert.alert('Não foi possível conectar a conta Google.')
+        }
+    }
+
     return(
         <Container>
             <Header>
@@ -40,16 +61,35 @@ export function Signin(){
 
             <Footer>
                 <FooterWrapper>
-                   <SigninSocialButton
-                   title='Entrar com Google'
-                   svg={GoogleSvg}/>
+                    <ButtonLoginSocial
+                    activeOpacity={0.8}
+                    onPress={handleSignInWithGoogle}>
+                        <IconRedeSocial>
+                            <GoogleSvg/>
+                        </IconRedeSocial>
+                        <TextRedeSocial>
+                            Entrar com Google
+                        </TextRedeSocial>
+                    </ButtonLoginSocial>
 
-                   <SigninSocialButton
-                   title='Entrar com Apple'
-                   svg={AppleSvg}/>
+                    <ButtonLoginSocial
+                    activeOpacity={0.8}
+                    >
+                        <IconRedeSocial>
+                            <AppleSvg/>
+                        </IconRedeSocial>
+                        <TextRedeSocial>
+                            Entrar com a Apple
+                        </TextRedeSocial>
+                    </ButtonLoginSocial>
                 </FooterWrapper>
-               
+            
             </Footer>
         </Container>
     );
 }
+
+
+
+  
+  

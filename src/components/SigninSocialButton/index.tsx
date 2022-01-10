@@ -9,7 +9,7 @@ import {
     Text,
 } from './style';
 
-interface Props extends RectButtonProps{
+interface Props{
     title: string;
     svg:React.FC<SvgProps>
 }

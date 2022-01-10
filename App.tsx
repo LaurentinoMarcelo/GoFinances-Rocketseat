@@ -12,6 +12,7 @@ import AppLoading from 'expo-app-loading';
 import 'intl';
 import 'intl/locale-data/jsonp/pt-BR';
 
+import { AuthProvider, useAuth } from './src/hooks/auth';
 
 import { AppRoutes } from './src/routes/app.routes'
 
@@ -35,7 +36,11 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <NavigationContainer>
         <StatusBar barStyle="light-content"/>
-        <Signin/> 
+
+        <AuthProvider>
+           <Signin/> 
+        </AuthProvider>
+  
       </NavigationContainer>
     </ThemeProvider>
   )    
