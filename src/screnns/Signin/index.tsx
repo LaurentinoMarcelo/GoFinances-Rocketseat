@@ -25,7 +25,7 @@ import { useAuth } from '../../hooks/auth'
 
 export function Signin(){
 
-    const {signInWithGoogle} = useAuth();
+    const {user, signInWithGoogle, signInWithApple} = useAuth();
         
     async function handleSignInWithGoogle() {       
         try {
@@ -34,6 +34,16 @@ export function Signin(){
         } catch (error) {
             console.log(error);
             Alert.alert('Não foi possível conectar a conta Google.')
+        }
+    }
+
+    async function handleSignInWithApple() {       
+        try {
+            await signInWithApple();
+
+        } catch (error) {
+            console.log(error);
+            Alert.alert('Não foi possível conectar a conta Apple.')
         }
     }
 
@@ -74,7 +84,7 @@ export function Signin(){
 
                     <ButtonLoginSocial
                     activeOpacity={0.8}
-                    >
+                    onPress={handleSignInWithApple}>
                         <IconRedeSocial>
                             <AppleSvg/>
                         </IconRedeSocial>

@@ -22,9 +22,12 @@ import {
     Transactions,
     Title,
     TransactionList,
-    LoadContainer
+    LoadContainer,
+    LogoutButton
 } from './styles'
 import { useTheme } from 'styled-components';
+import { useAuth } from '../../hooks/auth';
+import { Signin } from '../Signin';
 
 export interface DataListProps extends TransationCardProps{
     id: String;
@@ -47,6 +50,8 @@ export function Dashboard(){
    const [highlightData, setHighlightData] = useState<HighlightData>({} as HighlightData);
 
    const theme = useTheme();
+
+   
 
    function getLastTransactionDate(
        collection: DataListProps[], 
@@ -167,7 +172,10 @@ export function Dashboard(){
                                 <UserName>Rodrigo</UserName>
                             </User>
                         </UserInfo>
-                        <Icon name="power"/>
+                        <LogoutButton>
+                             <Icon name="power"/>
+                        </LogoutButton>
+                       
                     </UserWrapper>
                 </Header>
 
