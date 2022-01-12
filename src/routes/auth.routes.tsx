@@ -9,7 +9,7 @@ export function AuthRoutes(){
     return(
         <Navigator 
             screenOptions={{
-               
+               headerMode: "null"
             }}
         >
             <Screen

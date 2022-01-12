@@ -29,9 +29,12 @@ export default function App() {
     Poppins_700Bold
   })
 
-  if (!fontsLoaded) {
+  const { userStorageLoading } = useAuth();
+
+  if (!fontsLoaded || userStorageLoading) {
     return <AppLoading/>
   }
+  
   return(
     <ThemeProvider theme={theme}>
         <StatusBar barStyle="light-content"/>

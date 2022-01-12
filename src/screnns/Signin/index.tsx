@@ -1,6 +1,6 @@
-import React, {useContext} from 'react'
-import { Button, Text } from 'react-native'
-import { SigninSocialButton } from '../../components/SigninSocialButton'
+import React, {useContext, useState} from 'react'
+import { ActivityIndicator, Button, Text } from 'react-native'
+import { useTheme } from 'styled-components';
 import { Alert, TouchableOpacity } from 'react-native'
 import { 
     Container,
@@ -24,26 +24,31 @@ import { RFValue } from 'react-native-responsive-fontsize'
 import { useAuth } from '../../hooks/auth'
 
 export function Signin(){
+    const  [ isLoading, setIsLoading ] = useState(false);
+    const { signInWithGoogle, signInWithApple} = useAuth();
+    const theme = useTheme();
 
-    const {user, signInWithGoogle, signInWithApple} = useAuth();
-        
     async function handleSignInWithGoogle() {       
         try {
-            await signInWithGoogle();
-
+            setIsLoading(true);
+            return await signInWithGoogle();
         } catch (error) {
             console.log(error);
             Alert.alert('Não foi possível conectar a conta Google.')
+        } finally{
+            setIsLoading(false);
         }
     }
 
     async function handleSignInWithApple() {       
         try {
-            await signInWithApple();
-
+            setIsLoading(true);
+            return await signInWithApple();
         } catch (error) {
             console.log(error);
             Alert.alert('Não foi possível conectar a conta Apple.')
+        } finally{
+            setIsLoading(false);
         }
     }
 
@@ -93,7 +98,12 @@ export function Signin(){
                         </TextRedeSocial>
                     </ButtonLoginSocial>
                 </FooterWrapper>
-            
+            { isLoading && 
+            <ActivityIndicator 
+                color={theme.colors.shape}
+                style={{marginTop: 18}}
+                /> 
+            }
             </Footer>
         </Container>
     );

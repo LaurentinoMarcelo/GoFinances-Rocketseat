@@ -17,15 +17,17 @@ export const Header = styled.View `
     width: 100%;
     height: ${RFPercentage(42)}px;   
     background-color: ${(props) => props.theme.colors.primary};
+    
     `;
 
 export const UserWrapper = styled.View `
         width: 100%;
-        padding: 0 24px;
-        margin-top: ${getStatusBarHeight() + RFValue(28)}px;
+        padding: 0px 24px;
+        margin-top: ${getStatusBarHeight() + RFValue(8)}px;
         flex-direction:  row;
         justify-content: space-between;
         align-items: center;
+        
     `;
 
 export const UserInfo = styled.View`
