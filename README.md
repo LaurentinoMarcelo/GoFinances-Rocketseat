@@ -15,8 +15,21 @@ simples e elegante.
 </p>
 
 ---
+## ⚙Sobre
 
-## ⚙ Funcionalidades
+Autenticação
+
+O projeto utiliza o sistema de autenticação OAuth 2 que é um protocolo de autorização que permite que uma aplicação se autentique em outra. Para que isso aconteça, uma aplicação pede permissão de acesso para um usuário, sem que para isso ela tenha acesso a alguma senha dele. O usuário pode conceder ou não o acesso à aplicação.
+
+Funcionalidades
+
+Basicamente o aplicativo consiste de três telas sendo a primeira o Dashaboard, que contem o resumo das transações de entrada e sáida, a segunda tela é a de cadastro de despesa ou receite, e por fim a ultima tela que exibe um gráfico em pizza de todas as categorias de despezas.
+
+
+---
+
+
+## 📱Aplicanção
 
 [![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/vt5fpE0bzSY)
   
@@ -27,7 +40,8 @@ simples e elegante.
 O layout foi fornecido pala Rocketseat 
 - [Figma](https://www.figma.com/file/UQuhez6vG5kLn4164ljEGJ/RentX-Ignite-(Copy)?node-id=0%3A1)
 
-
+  --- 
+  
 ### 🛠Tecnologias Utilizadas
 
 As seguintes ferramentas foram usadas na construção do projeto:
@@ -59,7 +73,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
   # Navegue até a pasta do projeto e baixe as dependências<h3/>
 
-  cd GoFinances-mobile && yarn
+  cd gofinance && yarn
 
   # Rode o metro bundler<h3/>
 
