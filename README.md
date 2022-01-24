@@ -31,7 +31,7 @@ Basicamente o aplicativo consiste de três telas sendo a primeira o Dashaboard, 
 
 ## 📱Aplicanção
 
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/vt5fpE0bzSY)
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://www.youtube.com/watch?v=HopMgroCGQY)
   
   ---     
 
