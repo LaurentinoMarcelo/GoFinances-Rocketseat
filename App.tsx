@@ -16,7 +16,7 @@ import { AuthProvider, useAuth } from './src/hooks/auth';
 
 import { AppRoutes } from './src/routes/app.routes'
 
-import theme from './src/global/styles/theme';
+import theme from './src/styles/theme';
 
 import { Routes } from './src/routes'
 

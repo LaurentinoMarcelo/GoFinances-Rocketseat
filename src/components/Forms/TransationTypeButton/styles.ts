@@ -2,7 +2,7 @@ import styled, {css} from "styled-components/native";
 import { TouchableOpacity } from "react-native";
 import { Feather } from '@expo/vector-icons';
 import { RFValue } from "react-native-responsive-fontsize";
-import theme from "../../../global/styles/theme";
+import theme from "../../../styles/theme";
 
 interface IconProps {
     type: 'up' | 'down';
