@@ -31,9 +31,9 @@ Basicamente o aplicativo consiste de três telas sendo a primeira o Dashaboard, 
 
 ## 📱Aplicanção
 
-[![Watch the video](https://img.youtube.com/vi/MB6bFPdGfLU/hqdefault.jpg)](https://youtu.be/MB6bFPdGfLU)
+<img title="GoFinances" src="./Capa.png" />
   
-  ---     
+---     
 
 ## 🎨Layout
 
@@ -63,27 +63,26 @@ As seguintes ferramentas foram usadas na construção do projeto:
   Como utilizar ⚠️
 </h1>
 
- <h2> Para rodar o projeto, basta executar os seguintes comandos, em seu terminal com git <h2/>
+ <h3> Para rodar o projeto, basta executar os seguintes comandos, em seu terminal com git <h3/>
  
- 
- ```
-  # Faça um clone do repositório
   
+
+   Faça um clone do repositório
+```
   git clone <link-do-repositório>
-
+```
   # Navegue até a pasta do projeto e baixe as dependências<h3/>
-
+```
   cd gofinance && yarn
-
+```
   # Rode o metro bundler<h3/>
-
+```
   yarn start
- 
+```
   # E, em outro terminal, execute
-
+```
   yarn android # ou yarn ios
- ```
-  
+```  
   
   <h4> Obs: É muito importante que o back-end esteja rodando, quando você inciar o app </h4>
   
