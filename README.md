@@ -31,14 +31,14 @@ Basicamente o aplicativo consiste de três telas sendo a primeira o Dashaboard, 
 
 ## 📱Aplicanção
 
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/vt5fpE0bzSY)
+[![Watch the video](https://img.youtube.com/vi/MB6bFPdGfLU/hqdefault.jpg)](https://youtu.be/MB6bFPdGfLU)
   
   ---     
 
 ## 🎨Layout
 
 O layout foi fornecido pala Rocketseat 
-- [Figma](https://www.figma.com/file/UQuhez6vG5kLn4164ljEGJ/RentX-Ignite-(Copy)?node-id=0%3A1)
+- [Figma](https://www.figma.com/file/iOga7ZesKCy7SL1xQS5oV6/GoFinances-Ignite?node-id=0%3A1)
 
   --- 
   
