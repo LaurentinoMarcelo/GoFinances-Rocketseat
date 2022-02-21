@@ -12,7 +12,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#5636D3"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -31,6 +31,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "",
+    "githubUrl": "https://github.com/LaurentinoMarcelo/GoFinances-Rocketseat"
   }
 }
